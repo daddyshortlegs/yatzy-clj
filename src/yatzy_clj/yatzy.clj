@@ -16,12 +16,21 @@
 ;          return 0;
 ; }
 
+(defn sum-dice [dice value]
+  (reduce + (filter (fn [die] (= value die)) dice)))
 
-(defn ones [dice]
-  (reduce + (filter (fn [die] (= 1 die)) dice)))
+(defn ones [dice] (sum-dice dice 1))
 
-(defn twos [dice]
-  (reduce + (filter (fn [die] (= 2 die)) dice)))
+(defn twos [dice] (sum-dice dice 2))
+
+(defn threes [dice] (sum-dice dice 3))
+
+(defn fours [dice] (sum-dice dice 4))
+
+(defn fives [dice] (sum-dice dice 5))
+
+(defn sixes [dice] (sum-dice dice 6))
+
 
 
 

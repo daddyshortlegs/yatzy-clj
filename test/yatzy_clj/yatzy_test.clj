@@ -23,40 +23,25 @@
   (is (= 4 (twos [1 2 3 2 6])))
   (is (= 10 (twos [2 2 2 2 2]))))
 
-;
-;@Test
-;public void test_2s() {
-;                       assertEquals(4, Yatzy.twos(1,2,3,2,6));
-;                       assertEquals(10, Yatzy.twos(2,2,2,2,2));
-;                       }
-;
-;@Test
-;public void test_threes() {
-;                           assertEquals(6, Yatzy.threes(1,2,3,2,3));
-;                           assertEquals(12, Yatzy.threes(2,3,3,3,3));
-;                           }
-;
-;@Test
-;public void fours_test()
-;{
-; assertEquals(12, new Yatzy(4,4,4,5,5).fours());
-; assertEquals(8, new Yatzy(4,4,5,5,5).fours());
-; assertEquals(4, new Yatzy(4,5,5,5,5).fours());
-; }
-;
-;@Test
-;public void fives() {
-;                     assertEquals(10, new Yatzy(4,4,4,5,5).fives());
-;                     assertEquals(15, new Yatzy(4,4,5,5,5).fives());
-;                     assertEquals(20, new Yatzy(4,5,5,5,5).fives());
-;                     }
-;
-;@Test
-;public void sixes_test() {
-;                          assertEquals(0, new Yatzy(4,4,4,5,5).sixes());
-;                          assertEquals(6, new Yatzy(4,4,6,5,5).sixes());
-;                          assertEquals(18, new Yatzy(6,5,6,6,5).sixes());
-;                          }
+(deftest test_3s
+  (is (= 6 (threes [1 2 3 2 3])))
+  (is (= 12 (threes [2 3 3 3 3]))))
+
+(deftest test_4s
+  (is (= 12 (fours [4 4 4 5 5 ])))
+  (is (= 8 (fours [4 4 5 5 5])))
+  (is (= 4 (fours [4 5 5 5 5]))))
+
+(deftest test_5s
+  (is (= 10 (fives [4 4 4 5 5 ])))
+  (is (= 15 (fives [4 4 5 5 5])))
+  (is (= 20 (fives [4 5 5 5 5]))))
+
+(deftest test_6s
+  (is (= 0 (sixes [4 4 4 5 5 ])))
+  (is (= 6 (sixes [4 4 6 5 5])))
+  (is (= 18 (sixes [6 5 6 6 5]))))
+
 ;
 ;@Test
 ;public void one_pair() {
