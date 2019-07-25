@@ -5,22 +5,6 @@
   (reduce + dice)
   )
 
-(defn ones [dice]
-  (reduce + (filter (fn [die] (= 1 die)) dice)))
-
-
-;public static int ones(int d1, int d2, int d3, int d4, int d5) {
-;  int sum = 0;
-;  if (d1 == 1) sum++;
-;  if (d2 == 1) sum++;
-;  if (d3 == 1) sum++;
-;  if (d4 == 1) sum++;
-;  if (d5 == 1)
-;  sum++;
-;
-;  return sum;
-;  }
-
 ;public static int yatzy(int... dice)
 ;{
 ; int[] counts = new int[6];
@@ -31,3 +15,13 @@
 ;          return 50;
 ;          return 0;
 ; }
+
+
+(defn ones [dice]
+  (reduce + (filter (fn [die] (= 1 die)) dice)))
+
+(defn twos [dice]
+  (reduce + (filter (fn [die] (= 2 die)) dice)))
+
+
+

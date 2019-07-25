@@ -18,6 +18,11 @@
   (is (= 0 (ones [6 2 2 4 5])))
   (is (= 4 (ones [1 2 1 1 1]))))
 
+
+(deftest test_2s
+  (is (= 4 (twos [1 2 3 2 6])))
+  (is (= 10 (twos [2 2 2 2 2]))))
+
 ;
 ;@Test
 ;public void test_2s() {
