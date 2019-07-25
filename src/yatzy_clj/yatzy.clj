@@ -36,15 +36,7 @@
   (count (filter (fn [die] (= value die)) dice)))
 
 (defn tally-die [dice]
-  [
-   (count-value dice 1)
-   (count-value dice 2)
-   (count-value dice 3)
-   (count-value dice 4)
-   (count-value dice 5)
-   (count-value dice 6)
-   ]
-  )
+  (map (fn [x] (count-value dice x)) (range 1 7)))
 
 
 ;        int at;
