@@ -32,5 +32,15 @@
 (defn sixes [dice] (sum-dice dice 6))
 
 
+; int[] counts = new int[6];
+;    for (int die : dice)
+;    counts[die-1]++;
+
+
+(defn score_pair [dice]
+  (map (fn []))
+
+  )
+
 
 

@@ -42,7 +42,29 @@
   (is (= 6 (sixes [4 4 6 5 5])))
   (is (= 18 (sixes [6 5 6 6 5]))))
 
-;
+(defn tally-die [dice]
+  [
+   (count (filter (fn [die] (= 1 die)) dice))
+   (count (filter (fn [die] (= 2 die)) dice))
+   (count (filter (fn [die] (= 3 die)) dice))
+   (count (filter (fn [die] (= 4 die)) dice))
+   (count (filter (fn [die] (= 5 die)) dice))
+   (count (filter (fn [die] (= 6 die)) dice))
+   ]
+  )
+
+(deftest get_count_of_die
+  (is (= [0 0 0 2 2 1] (tally-die [4 4 6 5 5]))))
+
+
+;(deftest one_pair
+;  (is (= 6 (score_pair [3 4 3 5 6 ])))
+;  (is (= 10 (score_pair [5 3 3 3 5])))
+;  (is (= 12 (score_pair [5 3 6 6 5]))))
+
+
+
+
 ;@Test
 ;public void one_pair() {
 ;                        assertEquals(6, Yatzy.score_pair(3,4,3,5,6));
