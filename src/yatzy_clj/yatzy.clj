@@ -2,19 +2,7 @@
   (:gen-class))
 
 (defn chance [dice]
-  (reduce + dice)
-  )
-
-;public static int yatzy(int... dice)
-;{
-; int[] counts = new int[6];
-;    for (int die : dice)
-;    counts[die-1]++;
-; for (int i = 0; i != 6; i++)
-;          if (counts[i] == 5)
-;          return 50;
-;          return 0;
-; }
+  (reduce + dice))
 
 (defn sum-dice [dice value]
   (reduce + (filter (fn [die] (= value die)) dice)))
@@ -31,23 +19,23 @@
 
 (defn sixes [dice] (sum-dice dice 6))
 
-
 (defn count-value [dice value]
-  (count (filter (fn [die] (= value die)) dice)))
+  (->> (filter (fn [die] (= value die)) dice)
+       (count)))
 
 (defn tally-die [dice]
   (map (fn [x] (count-value dice x)) (range 1 7)))
 
+(defn is-count-at [dice i value]
+ (= value (nth (tally-die dice) i)))
 
-;        int at;
-;        for (at = 0; at < 6; at++)
-;            if (counts[6 - at - 1] >= 2)
-;                return (6 - at)*2;
-;        return 0;
+(defn get-first-tally [tallies value]
+  (->> (range 0 6)
+       (filter #(= value (nth tallies %)))
+       (first)))
 
-(defn score_pair [dice]
-  (filter (fn [count] ) (tally-die dice))
-  )
-
-
-
+(defn yatzy [dice]
+  (let [tallies (tally-die dice)]
+    (if (= nil (get-first-tally tallies 5))
+      0
+      50)))

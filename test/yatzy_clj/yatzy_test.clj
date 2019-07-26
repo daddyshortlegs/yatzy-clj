@@ -6,10 +6,10 @@
   (is (= 15 (chance [2 3 4 5 1])))
   (is (= 16 (chance [3 3 4 5 1]))))
 
-;(deftest yatzy_scores_50
-;  (is (= 50 (yatzy [4 4 4 4 4])))
-;  (is (= 50 (yatzy [6 6 6 6 6])))
-;  (is (= 0 (yatzy [6 6 6 6 3]))))
+(deftest yatzy_scores_50
+  (is (= 50 (yatzy [4 4 4 4 4])))
+  (is (= 50 (yatzy [6 6 6 6 6])))
+  (is (= 0 (yatzy [6 6 6 6 3]))))
 
 
 (deftest test_1s
