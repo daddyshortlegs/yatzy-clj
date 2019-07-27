@@ -47,10 +47,10 @@
   (is (= [0 0 0 2 2 1] (tally-die [4 4 6 5 5]))))
 
 
-;(deftest one_pair
-;  (is (= 6 (score_pair [3 4 3 5 6 ])))
-;  (is (= 10 (score_pair [5 3 3 3 5])))
-;  (is (= 12 (score_pair [5 3 6 6 5]))))
+(deftest one_pair
+  (is (= 6 (pair [3 4 3 5 6 ])))
+  (is (= 10 (pair [5 3 3 3 5])))
+  (is (= 12 (pair [5 3 6 6 5]))))
 
 (deftest test_three_of_a_kind
   (is (= 9 (three-of-a-kind [3 3 3 4 5])))
@@ -80,16 +80,12 @@
   (is (= 20 (large-straight [2 3 4 5 6])))
   (is (= 0 (large-straight [1 2 2 4 5]))))
 
+;(deftest test-full-house
+;  (is (= 20 (full-house [6 2 2 2 6])))
+;  (is (= 0 (full-house [2 3 4 5 6]))))
 
 ;@Test
-;public void largeStraight() {
-; assertEquals(20, Yatzy.largeStraight(6,2,3,4,5));
-; assertEquals(20, Yatzy.largeStraight(2,3,4,5,6));
-; assertEquals(0, Yatzy.largeStraight(1,2,2,4,5));
-;                             }
-;
-;@Test
 ;public void fullHouse() {
-;                         assertEquals(18, Yatzy.fullHouse(6,2,2,2,6));
-;                         assertEquals(0, Yatzy.fullHouse(2,3,4,5,6));
-;                         }
+;  assertEquals(18, Yatzy.fullHouse(6,2,2,2,6));
+;  assertEquals(0, Yatzy.fullHouse(2,3,4,5,6));
+; }
