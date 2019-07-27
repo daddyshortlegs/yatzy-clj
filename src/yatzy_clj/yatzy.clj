@@ -50,21 +50,20 @@
                     (first))]
     (if (= nil result) 0 result)))
 
-(defn three-of-a-kind [dice]
+(defn x-of-a-kind [dice x]
   (let [tallies (tally-die dice)
         result (->> (range 0 6)
-                    (filter #(>= (nth tallies %) 3))
-                    (map (fn [x] (* (+ x 1) 3)))
+                    (filter #(>= (nth tallies %) x))
+                    (map (fn [i] (* (+ i 1) x)))
                     (first))]
     (if (= nil result) 0 result)))
 
+
+(defn three-of-a-kind [dice]
+  (x-of-a-kind dice 3))
+
 (defn four-of-a-kind [dice]
-  (let [tallies (tally-die dice)
-        result (->> (range 0 6)
-                    (filter #(>= (nth tallies %) 4))
-                    (map (fn [x] (* (+ x 1) 4)))
-                    (first))]
-    (if (= nil result) 0 result)))
+  (x-of-a-kind dice 4))
 
 (defn small-straight [dice]
   (let [tallies (tally-die dice)
