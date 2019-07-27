@@ -57,6 +57,9 @@
   (is (= 15 (three-of-a-kind [5 3 5 4 5])))
   (is (= 9 (three-of-a-kind [3 3 3 3 5]))))
 
+(deftest test-four-of-a-kind
+  (is (= 12 (four-of-a-kind [3 3 3 3 5])))
+  (is (= 20 (four-of-a-kind [5 5 5 4 5 ]))))
 
 ;@Test
 ;public void two_Pair() {
@@ -64,19 +67,12 @@
 ;                        assertEquals(16, Yatzy.two_pair(3,3,5,5,5));
 ;                        }
 ;
-;@Test
-;public void three_of_a_kind()
-;{
-; assertEquals(9, Yatzy.three_of_a_kind(3,3,3,4,5));
-; assertEquals(15, Yatzy.three_of_a_kind(5,3,5,4,5));
-; assertEquals(9, Yatzy.three_of_a_kind(3,3,3,3,5));
-; }
 ;
 ;@Test
 ;public void four_of_a_knd() {
-;                             assertEquals(12, Yatzy.four_of_a_kind(3,3,3,3,5));
-;                             assertEquals(20, Yatzy.four_of_a_kind(5,5,5,4,5));
-;                             assertEquals(9, Yatzy.three_of_a_kind(3,3,3,3,3));
+;  assertEquals(12, Yatzy.four_of_a_kind(3,3,3,3,5));
+;   assertEquals(20, Yatzy.four_of_a_kind(5,5,5,4,5));
+;   assertEquals(9, Yatzy.three_of_a_kind(3,3,3,3,3));
 ;                             }
 ;
 ;@Test

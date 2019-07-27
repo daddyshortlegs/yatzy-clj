@@ -47,3 +47,9 @@
          (map (fn [x] (* (+ x 1) 3)))
          (first))))
 
+(defn four-of-a-kind [dice]
+  (let [tallies (tally-die dice)]
+    (->> (range 0 6)
+         (filter #(> (nth tallies %) 3))
+         (map (fn [x] (* (+ x 1) 4)))
+         (first))))
