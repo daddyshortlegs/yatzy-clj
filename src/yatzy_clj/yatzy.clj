@@ -42,46 +42,42 @@
       50)))
 
 (defn pair [dice]
-  (let [tallies (tally-die dice)]
-    (->> (range 0 5)
-         (map (fn [i] (- 5 i)))
-         (filter #(> (nth tallies %) 1))
-         (map (fn [x] (* (+ x 1) 2)))
-         (first))
-    ))
+  (let [tallies (tally-die dice)
+        result (->> (range 0 5)
+                    (map (fn [i] (- 5 i)))
+                    (filter #(> (nth tallies %) 1))
+                    (map (fn [x] (* (+ x 1) 2)))
+                    (first))]
+    (if (= nil result) 0 result)))
 
 (defn three-of-a-kind [dice]
-  (let [tallies (tally-die dice)]
-    (->> (range 0 6)
-         (filter #(> (nth tallies %) 2))
-         (map (fn [x] (* (+ x 1) 3)))
-         (first))))
+  (let [tallies (tally-die dice)
+        result (->> (range 0 6)
+                    (filter #(> (nth tallies %) 2))
+                    (map (fn [x] (* (+ x 1) 3)))
+                    (first))]
+    (if (= nil result) 0 result)))
 
 (defn four-of-a-kind [dice]
-  (let [tallies (tally-die dice)]
-    (->> (range 0 6)
-         (filter #(> (nth tallies %) 3))
-         (map (fn [x] (* (+ x 1) 4)))
-         (first))))
+  (let [tallies (tally-die dice)
+        result (->> (range 0 6)
+                    (filter #(> (nth tallies %) 3))
+                    (map (fn [x] (* (+ x 1) 4)))
+                    (first))]
+    (if (= nil result) 0 result)))
 
 (defn small-straight [dice]
-  (let [tallies (tally-die dice)]
-    (if (= nil
-    (->> (range 0 5)
-         (filter #(not= (nth tallies %) 1))
-         (map (fn [x] 0))
-         (first)))
-      15
-      0
-      )))
+  (let [tallies (tally-die dice)
+        result (->> (range 0 5)
+                    (filter #(not= (nth tallies %) 1))
+                    (map (fn [x] 0))
+                    (first))]
+    (if (= nil result) 15 0)))
 
 (defn large-straight [dice]
-  (let [tallies (tally-die dice)]
-    (if (= nil
-           (->> (range 1 6)
-                (filter #(not= (nth tallies %) 1))
-                (map (fn [x] 0))
-                (first)))
-      20
-      0
-      )))
+  (let [tallies (tally-die dice)
+        result (->> (range 1 6)
+                    (filter #(not= (nth tallies %) 1))
+                    (map (fn [x] 0))
+                    (first))]
+    (if (= nil result) 20 0)))

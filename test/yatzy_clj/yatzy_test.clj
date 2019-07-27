@@ -81,11 +81,5 @@
   (is (= 0 (large-straight [1 2 2 4 5]))))
 
 ;(deftest test-full-house
-;  (is (= 20 (full-house [6 2 2 2 6])))
+;  (is (= 18 (full-house [6 2 2 2 6])))
 ;  (is (= 0 (full-house [2 3 4 5 6]))))
-
-;@Test
-;public void fullHouse() {
-;  assertEquals(18, Yatzy.fullHouse(6,2,2,2,6));
-;  assertEquals(0, Yatzy.fullHouse(2,3,4,5,6));
-; }
