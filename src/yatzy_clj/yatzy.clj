@@ -53,3 +53,15 @@
          (filter #(> (nth tallies %) 3))
          (map (fn [x] (* (+ x 1) 4)))
          (first))))
+
+(defn small-straight [dice]
+  (let [tallies (tally-die dice)]
+    (if (= nil
+    (->> (range 0 5)
+         (filter #(not= (nth tallies %) 1))
+         (map (fn [x] 0))
+         (first)))
+      15
+      0
+      )))
+
