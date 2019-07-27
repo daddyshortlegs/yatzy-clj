@@ -39,3 +39,11 @@
     (if (= nil (get-first-tally tallies 5))
       0
       50)))
+
+(defn three-of-a-kind [dice]
+  (let [tallies (tally-die dice)]
+    (->> (range 0 6)
+         (filter #(> (nth tallies %) 2))
+         (map (fn [x] (* (+ x 1) 3)))
+         (first))))
+

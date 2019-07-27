@@ -52,16 +52,12 @@
 ;  (is (= 10 (score_pair [5 3 3 3 5])))
 ;  (is (= 12 (score_pair [5 3 6 6 5]))))
 
+(deftest test_three_of_a_kind
+  (is (= 9 (three-of-a-kind [3 3 3 4 5])))
+  (is (= 15 (three-of-a-kind [5 3 5 4 5])))
+  (is (= 9 (three-of-a-kind [3 3 3 3 5]))))
 
 
-
-;@Test
-;public void one_pair() {
-;                        assertEquals(6, Yatzy.score_pair(3,4,3,5,6));
-;                        assertEquals(10, Yatzy.score_pair(5,3,3,3,5));
-;                        assertEquals(12, Yatzy.score_pair(5,3,6,6,5));
-;                        }
-;
 ;@Test
 ;public void two_Pair() {
 ;                        assertEquals(16, Yatzy.two_pair(3,3,5,4,5));
