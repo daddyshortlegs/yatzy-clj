@@ -26,7 +26,6 @@
 (defn tally-die [dice]
   (map (fn [x] (count-value dice x)) (range 1 7)))
 
-
 (defn is-count-at [dice i value]
  (= value (nth (tally-die dice) i)))
 
@@ -58,28 +57,23 @@
                     (first))]
     (if (= nil result) 0 result)))
 
-
 (defn three-of-a-kind [dice]
   (x-of-a-kind dice 3))
 
 (defn four-of-a-kind [dice]
   (x-of-a-kind dice 4))
 
+(defn straight [dice start end]
+  (->> (range start end)
+       (filter #(not= (nth (tally-die dice) %) 1))
+       (map (fn [x] 0))
+       (first)))
+
 (defn small-straight [dice]
-  (let [tallies (tally-die dice)
-        result (->> (range 0 5)
-                    (filter #(not= (nth tallies %) 1))
-                    (map (fn [x] 0))
-                    (first))]
-    (if (= nil result) 15 0)))
+  (if (= nil (straight dice 0 5)) 15 0))
 
 (defn large-straight [dice]
-  (let [tallies (tally-die dice)
-        result (->> (range 1 6)
-                    (filter #(not= (nth tallies %) 1))
-                    (map (fn [x] 0))
-                    (first))]
-    (if (= nil result) 20 0)))
+  (if (= nil (straight dice 1 6)) 20 0))
 
 (defn full-house [dice]
   (+ (pair dice) (three-of-a-kind dice)))
