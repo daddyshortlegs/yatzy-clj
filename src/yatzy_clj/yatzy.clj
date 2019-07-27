@@ -65,3 +65,13 @@
       0
       )))
 
+(defn large-straight [dice]
+  (let [tallies (tally-die dice)]
+    (if (= nil
+           (->> (range 1 6)
+                (filter #(not= (nth tallies %) 1))
+                (map (fn [x] 0))
+                (first)))
+      20
+      0
+      )))
