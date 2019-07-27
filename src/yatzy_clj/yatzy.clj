@@ -81,3 +81,6 @@
                     (map (fn [x] 0))
                     (first))]
     (if (= nil result) 20 0)))
+
+(defn full-house [dice]
+  (+ (pair dice) (three-of-a-kind dice)))

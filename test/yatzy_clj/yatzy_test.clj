@@ -80,6 +80,6 @@
   (is (= 20 (large-straight [2 3 4 5 6])))
   (is (= 0 (large-straight [1 2 2 4 5]))))
 
-;(deftest test-full-house
-;  (is (= 18 (full-house [6 2 2 2 6])))
-;  (is (= 0 (full-house [2 3 4 5 6]))))
+(deftest test-full-house
+  (is (= 18 (full-house [6 2 2 2 6])))
+  (is (= 0 (full-house [2 3 4 5 6]))))
