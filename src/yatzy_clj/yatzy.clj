@@ -26,9 +26,6 @@
 (defn tally-die [dice]
   (map (fn [x] (count-value dice x)) (range 1 7)))
 
-(defn is-count-at [dice i value]
- (= value (nth (tally-die dice) i)))
-
 (defn get-first-tally [tallies value]
   (->> (range 0 6)
        (filter #(= value (nth tallies %)))
@@ -45,8 +42,17 @@
         result (->> (range 0 5)
                     (map (fn [i] (- 5 i)))
                     (filter #(> (nth tallies %) 1))
-                    (map (fn [x] (* (+ x 1) 2)))
+                    (map #(* (+ % 1) 2))
                     (first))]
+    (if (= nil result) 0 result)))
+
+(defn two-pair [dice]
+  (let [tallies (tally-die dice)
+        result (->> (range 0 6)
+                    (filter #(>= (nth tallies (- 6 % 1)) 2))
+                    (map #(- 6 %))
+                    (reduce +)
+                    (* 2))]
     (if (= nil result) 0 result)))
 
 (defn x-of-a-kind [dice x]

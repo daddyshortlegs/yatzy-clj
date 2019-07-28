@@ -66,14 +66,9 @@
   (is (= 15 (small-straight [2 3 4 5 1])))
   (is (= 0 (small-straight [1 2 2 4 5]))))
 
-;@Test
-;public void two_Pair() {
-;                        assertEquals(16, Yatzy.two_pair(3,3,5,4,5));
-;                        assertEquals(16, Yatzy.two_pair(3,3,5,5,5));
-;                        }
-;
-;
-
+(deftest test-two-pair
+  (is (= 16 (two-pair [3 3 5 4 5])))
+  (is (= 16 (two-pair [3 3 5 5 5]))))
 
 (deftest test-large-straight
   (is (= 20 (large-straight [6 2 3 4 5])))
